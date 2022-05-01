@@ -1,7 +1,7 @@
 node{
   def Namespace = "pkapp"
-  def ImageName = "maheshkharwadkar/mkimage:latest"
-  def Creds	= "mk-dockerhub-creds"
+  def ImageName = "maheshkharwadkar/mkimage"
+  def Creds	= "amrita"
   def imageTag = "1.0"
   try{
   stage('Checkout'){
