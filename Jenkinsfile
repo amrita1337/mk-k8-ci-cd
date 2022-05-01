@@ -1,11 +1,11 @@
 node{
   def Namespace = "pkapp"
-  def ImageName = "maheshkharwadkar/mkimage"
+  def ImageName = "amritanamdeo18/mkimage"
   def Creds	= "amrita"
   def imageTag = "1.0"
   try{
   stage('Checkout'){
-      git 'https://github.com/maheshkharwadkar/mk-k8-ci-cd.git'
+      git 'https://github.com/amrita1337/mk-k8-ci-cd.git'
       //sh "git rev-parse --short HEAD > .git/commit-id"
       //imageTag= readFile('.git/commit-id').trim()
 
@@ -19,7 +19,7 @@ node{
       sh "npm test"
   }
   stage('Docker Build, Push'){
-    withCredentials([usernameColonPassword(credentialsId: 'amrita', variable: 'dockerhub',url: 'https://index.docker.io/v1/')]) {
+    withCredentials([usernameColonPassword(credentialsId: 'mohit', variable: 'newjenkins',,url: 'https://index.docker.io/v1/')]) {
       sh "docker build -t ${ImageName}:${imageTag} ."
       sh "docker push ${ImageName}"
         }
