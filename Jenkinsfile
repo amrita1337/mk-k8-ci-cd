@@ -19,7 +19,7 @@ node{
       sh "npm test"
   }
   stage('Docker Build, Push'){
-    withDockerRegistry([credentialsId: "${Creds}", url: 'https://index.docker.io/v1/']) {
+    withCredentials([usernameColonPassword(credentialsId: 'amrita', variable: 'dockerhub',url: 'https://index.docker.io/v1/')]) {
       sh "docker build -t ${ImageName}:${imageTag} ."
       sh "docker push ${ImageName}"
         }
